@@ -22,7 +22,7 @@ app.use('/api/users/:id/messages', verifyLogin, validateUser, messageRouter)
 app.use('/api/messages', verifyLogin, getAllMessages)
 
 app.use(function(req, res, next) {
-  let err = new Error('Not Found!!!');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 })

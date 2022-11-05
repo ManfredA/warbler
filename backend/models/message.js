@@ -11,6 +11,8 @@ const messageSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   }
+},   {
+  timestamps: true
 })
 
 messageSchema.pre('remove', async function (next) {
@@ -23,5 +25,16 @@ messageSchema.pre('remove', async function (next) {
     return next(error)
   }
 })
+
+messageSchema.virtual('id').get(function(){
+  return this._id.toHexString();
+});
+
+// Ensure virtual fields are serialised.
+messageSchema.set('toJSON', {
+  virtuals: true,
+  versionKey:false,
+  transform: function (_, ret) {   delete ret._id  }
+});
 
 export const Message = mongoose.model('Message', messageSchema)
