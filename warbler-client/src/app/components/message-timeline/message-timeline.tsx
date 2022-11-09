@@ -3,8 +3,7 @@ import UserAside from "../user-aside/user-aside";
 
 export function MessageTimeline() {
   return <div className="row">
-            <UserAside/>
-
-    <MessageList/>
+    <UserAside />
+    <MessageList />
   </div>
 }

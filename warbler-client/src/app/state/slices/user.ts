@@ -59,7 +59,7 @@ export const authenticateUser = createAsyncThunk(
     type: string,
     userData: Omit<User, 'id'>
   }) => {
-    const { token, ...user } = await apiCall("post", `api/auth/${type}`, userData);
+    const { token, ...user } = await apiCall("post", `/api/auth/${type}`, userData);
     localStorage.setItem('jwtToken', token)
     setTokenHeader(token)
     return user;
@@ -71,6 +71,7 @@ export const logout = createAsyncThunk(
   async () => {
     localStorage.clear()
     setTokenHeader(false)
+    window.location.replace('/');
   }
 );
 //#endregion

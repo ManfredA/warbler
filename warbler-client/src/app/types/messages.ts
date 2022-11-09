@@ -4,7 +4,7 @@ export interface Message {
   id: string
   user?: User
   text: string
-  date: string
+  createdAt: string
 }
 
 export interface MessagesState {

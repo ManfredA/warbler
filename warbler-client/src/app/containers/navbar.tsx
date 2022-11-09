@@ -12,13 +12,12 @@ export function Navbar() {
 
   return (
     <nav className="navbar navbar-expand">
-      <div className="container-fluid">
         <Link to='/' className='navbar-brand'>
           <img src={`${process.env.PUBLIC_URL}/images/warbler-logo.png`} alt="Warbler Home" />
         </Link>
         {isAuthenticated ?
-        <ul>
-          <li><Link to={`/users/${user?.id}/messages/new`}/>New Messages</li>
+        <ul className='nav navbar-nav navbar-right'>
+          <li><Link to={`/users/${user?.id}/messages/new`}>New Messages </Link></li>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <li><a onClick={handleLogout}>Logout</a></li>
         </ul>
@@ -30,7 +29,6 @@ export function Navbar() {
           <Link to='/sign-up'>Sign up</Link>
         </li>
       </ul>}
-      </div>
 
     </nav>)
 }

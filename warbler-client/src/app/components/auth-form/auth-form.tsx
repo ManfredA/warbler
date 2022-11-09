@@ -45,14 +45,13 @@ export function AuthForm({ header, buttonText }: { header: string, buttonText: s
 
   return (
     <div>
-
       <div className="row justify-content-md-center text-center">
         {hasErrors && <div className="alert alert-danger">
           {errors.message}
         </div>}
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
-            <h1>{header} {formState.username || formState.email}</h1>
+            <h1>{header}</h1>
             <label htmlFor="email">Email</label>
             <input
               className="form-control"

@@ -52,5 +52,12 @@ userSchema.methods.comparePassword = async function(candidatePassword, next) {
   }
 }
 
+// Ensure virtual fields are serialised.
+userSchema.set('toJSON', {
+  virtuals: true,
+  versionKey:false,
+  transform: function (_, ret) {   delete ret._id  }
+});
+
 
 export const User = mongoose.model('User', userSchema)

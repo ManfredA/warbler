@@ -15,16 +15,21 @@ const messageSchema = mongoose.Schema({
   timestamps: true
 })
 
-messageSchema.pre('remove', async function (next) {
+messageSchema.pre("remove", async function(next) {
   try {
-    const user = await User.findById(this.user)
-    user.messages.remove(this.id)
-    await user.save
-    return next()
-  } catch (error) {
-    return next(error)
+    // find a user
+    console.log('this.user: ', JSON.stringify(this));
+    let user = await User.findById(this.user);
+    // remove the id of the message from their messages list
+    user.messages.remove(this.id);
+    // save that user
+    await user.save();
+    // return next
+    return next();
+  } catch (err) {
+    return next(err);
   }
-})
+});
 
 messageSchema.virtual('id').get(function(){
   return this._id.toHexString();

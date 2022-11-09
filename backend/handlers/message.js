@@ -50,7 +50,7 @@ export const getMessage = async function (req, res, next) {
 export const deleteMessage = async function (req, res, next) {
   try {
     const messageToDelete = await Message.findById(req.params.messageId)
-    messageToDelete.remove()
+    await messageToDelete.remove()
     return res.status(200).json(messageToDelete)
   } catch (error) {
     return next(error)
