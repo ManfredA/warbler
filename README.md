@@ -1,7 +1,7 @@
 Description: This is a very dummy application meant to practice Fullstack skills.
 
-# todos-app
-A "todos" application exercise to improve the fullstack skills.
+# Dummy-app
+A "dummy" application exercise to improve the fullstack skills.
    There are a lot of areas of improvement that have TODOs
 
 ## Steps to install
