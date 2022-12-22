@@ -11,4 +11,20 @@ A "dummy" application exercise to improve the fullstack skills.
   ```
   **Optional**: install mongodb compass to interact with the db
 
-2. npm install
+2. install dependencies
+  ```bash
+    npm install
+  ```
+
+3. Add the MONGO_ATLAS_PASS to the env variables
+
+4. start applications
+  inside of the client folder
+  ```bash
+    npm start
+  ```
+
+  inside of the backend folder
+  ```bash
+    npm start
+  ```
